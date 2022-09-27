@@ -4,6 +4,7 @@ import EditNote from "../EditNote/EditNote";
 
 const TodoEditor = () => {
   const noteId = useEditState();
+
   if (noteId !== -1) {
     return <EditNote noteId={noteId}/>
   }

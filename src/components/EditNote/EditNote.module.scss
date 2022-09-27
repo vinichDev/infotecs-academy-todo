@@ -8,24 +8,27 @@
 }
 
 .header {
-  min-height: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  margin-right: -15px;
 }
 
 .indicators {
   display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
 }
 
 .indicator {
   border: 2px solid black;
   border-radius: 10px;
   display: block;
-  margin-right: 30px;
   background: none;
   width: 100px;
-  height: 20px;
+  margin: 5px 15px;
+  min-height: 20px;
 
   &:hover {
     background: $lightgray;
@@ -33,6 +36,9 @@
 }
 
 .delete-btn {
+  height: 30px;
+  margin: 10px 15px 10px 0;
+  display: block;
   border: none;
   border-radius: 10px;
 
@@ -54,7 +60,7 @@
   outline: none;
   font-weight: bold;
   font-size: 24px;
-  width: 40%;
+  width: 100%;
   border-bottom: 1px solid lightgray;
 }
 

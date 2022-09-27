@@ -1,7 +1,14 @@
 @import "src/styles/colors.scss";
 
 .wrapper {
-  width: 30%;
+  width: 500px;
   flex: none;
-  border-right: 1px solid #dad8d8;
+  display: flex;
+}
+
+.border {
+  flex: none;
+  width: 2px;
+  background: #dad8d8;
+  cursor: ew-resize;
 }
