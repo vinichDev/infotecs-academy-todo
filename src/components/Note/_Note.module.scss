@@ -1,0 +1,32 @@
+@import "src/styles/colors.scss";
+
+.wrapper {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  overflow: hidden;
+
+  &:hover {
+    background: aliceblue;
+  }
+
+  &:active {
+    background: none;
+  }
+}
+
+.title {
+  max-height: 100%;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.indicator {
+  margin-right: 10px;
+  fill: #c5c5c5;
+  width: 15px;
+  height: 15px;
+}

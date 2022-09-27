@@ -1,0 +1,37 @@
+@import "src/styles/colors.scss";
+
+.wrapper {
+  height: 40px;
+  background: $blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title1 {
+  padding-left: 10px;
+  color: white;
+}
+
+.btn-icon {
+  fill: white;
+  width: 17px;
+}
+
+.create-note-btn {
+  margin-right: 20px;
+  margin-bottom: 2px;
+  display: block;
+  border: none;
+  background: none;
+
+  &:hover .btn-icon {
+    fill: $lightgray;
+  }
+
+  &:active .btn-icon {
+    fill: white;
+  }
+}
+
+

@@ -1,0 +1,7 @@
+@import "src/styles/colors.scss";
+
+.wrapper {
+  background: $lightgray;
+  overflow-y: scroll;
+  height: 560px;
+}
