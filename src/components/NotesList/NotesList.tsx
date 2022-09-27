@@ -1,15 +1,20 @@
-import React from 'react';
-import styles from './_NotesList.module.scss'
+import React, {FC} from 'react';
+import styles from './NotesList.module.scss'
 import Note from "../Note/Note";
 import {useNotesState} from "../../context/NotesContext";
 
-const NotesList = () => {
+interface NotesListProps {
+  query: string;
+}
+
+const NotesList: FC<NotesListProps> = ({query}) => {
   const notes = useNotesState();
+  const list = notes.filter((note) => note.title.toLowerCase().includes(query))
 
   return (
     <div className={styles.wrapper}>
-      {notes.map((note, index) => (
-        <Note key={note.id} title={note.title} indicator={note.status} index={index}/>
+      {list.map((note) => (
+        <Note key={note.id} title={note.title} indicator={note.status} id={note.id}/>
       ))}
     </div>
   );

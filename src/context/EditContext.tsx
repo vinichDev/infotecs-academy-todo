@@ -1,5 +1,5 @@
 import React, {createContext, FC, ReactNode, useContext, useReducer} from 'react';
-import {EditAction, EditDispatch, EditActionType} from "../store/edit";
+import {EditAction, EditDispatch, EditActionType} from "../types/edit";
 
 const EditStateContext = createContext<number | undefined>(undefined);
 const EditDispatchContext = createContext<EditDispatch | undefined>(undefined);

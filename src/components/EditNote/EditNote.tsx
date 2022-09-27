@@ -3,7 +3,7 @@ import {useNotesDispatch, useNotesState} from "../../context/NotesContext";
 import styles from "./EditNote.module.scss";
 import {NotesActionType, NoteStatus} from "../../types/notes";
 import {useEditDispatch} from "../../context/EditContext";
-import {EditActionType} from "../../store/edit";
+import {EditActionType} from "../../types/edit";
 import DeleteIcon from "../../images/DeleteIcon.svg";
 
 const EditNote: FC<{ noteId: number }> = ({noteId}) => {
@@ -11,16 +11,24 @@ const EditNote: FC<{ noteId: number }> = ({noteId}) => {
   const dispatchNotes = useNotesDispatch()
   const dispatchEdit = useEditDispatch();
 
-  const title = notes[noteId].title;
-  const description = notes[noteId].description;
-  const status = notes[noteId].status
+  const noteIndex = notes.findIndex(note => note.id === noteId)
+  const note = notes[noteIndex];
+
+  if(note === undefined) {
+    dispatchEdit({type: EditActionType.Reset});
+    return <></>
+  }
+
+  const title = note.title;
+  const description = note.description;
+  const status = note.status
 
   const statusHandler = (newStatus: NoteStatus) => {
     if (status != newStatus) {
       dispatchNotes({
         type: NotesActionType.EditStatus,
         payload: {
-          index: noteId,
+          index: noteIndex,
           status: newStatus
         }
       })
@@ -60,12 +68,12 @@ const EditNote: FC<{ noteId: number }> = ({noteId}) => {
           </button>
         </div>
         <button className={styles["delete-btn"]}
-          onClick={e => {
+          onClick={() => {
             dispatchEdit({type: EditActionType.Reset})
             dispatchNotes({
               type: NotesActionType.Remove,
               payload: {
-                index: noteId
+                index: noteIndex
               }
             })
           }}
@@ -91,7 +99,7 @@ const EditNote: FC<{ noteId: number }> = ({noteId}) => {
           dispatchNotes({
             type: NotesActionType.EditDescription,
             payload: {
-              index: noteId,
+              index: noteIndex,
               description: e.target.value
             }
           })
